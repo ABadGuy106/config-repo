@@ -1,0 +1,36 @@
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://pocdb:pocdb@localhost:8761/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+server:
+  port: 8991
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: top-mall-config-centre
+      fail-fast: true #读取没有成功，执行快速失败
+      profile: dev
+#      label: master
+  application:
+    name: top-mall-config-clinet
+  boot:
+    admin:
+      client:
+        url: "http://localhost:9000"
+        password: pocdb
+        username: pocdb
+        instance:
+          prefer-ip: true
+test:
+  env: t12121
