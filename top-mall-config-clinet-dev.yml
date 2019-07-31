@@ -33,4 +33,4 @@ spring:
         instance:
           prefer-ip: true
 test:
-  env: test-10:30
+  env: test-11：00
